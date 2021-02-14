@@ -1,24 +1,18 @@
-# README
+# Street Cafes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Versioning
+- Ruby 2.5.3
+- Rails 5.2.4.5
 
-Things you may want to cover:
+## Dependencies
+The following are gems I added in addition to gems created with a new Rails app
+- `gem 'pry'`
+- `gem 'rspec-rails'`
+- `gem 'capybara'`
+- `gem 'simplecov'`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Setup
+1. Clone this repo/fork
+1. Run `bundle install`
+1. Run `rails db:{create,migrate,seed}`
+1. 
