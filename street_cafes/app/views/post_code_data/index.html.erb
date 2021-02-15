@@ -9,8 +9,12 @@
 		<th>place_with_max_chairs</th>
 	</tr>
 	<% @post_codes.each do |code| %>
-		<tr id='<%= code.name %>'>
-			<td class='post_code'></td>
+		<tr id="code-<%= code.code %>">
+			<td class='post_code'><%= code.code %></td>
+			<td class='total_places'><%= code.total_places %></td>
+			<td class='total_chairs'><%= code.total_chairs %></td>
+			<td class='chairs_pct'><%= code.chairs_pct.round(2) %>%</td>
+			<td class='place_with_max_chairs'><%= code.place_with_max_chairs %></td>
 		</tr>
 	<% end %>
 </table>
