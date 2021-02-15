@@ -5,4 +5,7 @@ class StreetCafe < ApplicationRecord
 	validates_presence_of :address
 	validates_presence_of :post_code
 	validates_presence_of :num_chairs
+
+	def self.post_code_data
+	end
 end
