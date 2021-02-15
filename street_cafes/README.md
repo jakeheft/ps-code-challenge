@@ -10,6 +10,9 @@ The following are gems I added in addition to gems created with a new Rails app
 - `gem 'rspec-rails'`
 - `gem 'capybara'`
 - `gem 'simplecov'`
+- `gem 'shoulda-matchers'`
+- `gem 'factory_bot_rails'`
+- `gem 'faker'`
 
 ## Setup
 1. Clone this repo/fork

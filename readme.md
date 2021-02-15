@@ -3,7 +3,8 @@
 ### Welcome to the take home portion of your interview! We're excited to jam through some technical stuff with you, but first it'll help to get a sense of how you work through data and coding problems. Work through what you can independently, but do feel free to reach out if you have blocking questions or problems.
 
 1) This requires Postgres (9.4+) & Rails(4.2+), so if you don't already have both installed, please install them.
-
+- Repo name: `street_cafes`  
+- Uses Ruby version 2.5.3, Rails version 5.2.4.5  
 2) Download the data file from: https://github.com/gospotcheck/ps-code-challenge/blob/master/Street%20Cafes%202020-21.csv
 
 3) Add a varchar column to the table called `category`. 
@@ -17,6 +18,8 @@
     -max_chairs: The number of chairs at the place_with_max_chairs
 	
     *Please also include a brief description of how you verified #4*
+    - View path: `'/post_code_data'`
+    - This data was verified via tests in both filepaths: `'street_cafes/spec/features/post_code_data/index_spec'` (integration level) & `'street_cafes/spec/poros/post_code_spec'` (unit level). PORO methods are fully tested at both unit and integration levels (using SimpleCov to ensure 100% testing coverage) to verify that data provided is accurate and displayed correctly in the view.
 
 5) Write a Rails script to categorize the cafes and write the result to the category according to the rules:[provide the script]
     - If the Post Code is of the LS1 prefix type:
