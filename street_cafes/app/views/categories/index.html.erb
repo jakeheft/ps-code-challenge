@@ -7,10 +7,10 @@
 		<th>total_chairs</th>
 	</tr>
 	<% @categories.each do |category| %>
-		<tr id="">
-			<td class='category'></td>
-			<td class='total_places'></td>
-			<td class='total_chairs'></td>
+		<tr id="<%= category.category.delete(' ') %>">
+			<td class='category'><%= category.category %></td>
+			<td class='total_places'><%= category.total_places %></td>
+			<td class='total_chairs'><%= category.total_chairs %></td>
 		</tr>
 	<% end %>
 </table>
