@@ -3,8 +3,9 @@
 ### Welcome to the take home portion of your interview! We're excited to jam through some technical stuff with you, but first it'll help to get a sense of how you work through data and coding problems. Work through what you can independently, but do feel free to reach out if you have blocking questions or problems.
 
 1) This requires Postgres (9.4+) & Rails(4.2+), so if you don't already have both installed, please install them.
-- Repo name: `street_cafes`  
-- Uses Ruby version 2.5.3, Rails version 5.2.4.5  
+    #### Jake's work
+    - Repo name: `street_cafes`  
+    - Uses Ruby version 2.5.3, Rails version 5.2.4.5  
 2) Download the data file from: https://github.com/gospotcheck/ps-code-challenge/blob/master/Street%20Cafes%202020-21.csv
 
 3) Add a varchar column to the table called `category`. 
@@ -18,6 +19,7 @@
     -max_chairs: The number of chairs at the place_with_max_chairs
 	
     *Please also include a brief description of how you verified #4*
+    #### Jake's work
     - View path: `'/post_code_data'`
     - This data was verified via tests in both filepaths: `'street_cafes/spec/features/post_code_data/index_spec'` (integration level) & `'street_cafes/spec/poros/post_code_spec'` (unit level). PORO methods are fully tested at both unit and integration levels (using SimpleCov to ensure 100% testing coverage) to verify that data provided is accurate and displayed correctly in the view.
 
@@ -33,11 +35,19 @@
         - `category = 'other'`
 
     *Please share any tests you wrote for #5*
+    #### Jake's work
+    - The categorize script is called in the categories controller create action. The method is clickable from a button on the root path, which will categorize all StreetCafe records and redirect you to the `'/categories'` view.
+    - I wrote 1 test for this, located in `'street_cafes/spec/features/welcome_spec'`. The test data creates enough cafes to fall into every category type. The cafes are tested to ensure there is no category prior to running the script. Then each cafe is tested to ensure the the correct category has been added.
+    - For categorizing LS2, there was no explicit instructions for when an odd number produces a number right at the 50th percentantile, so I made a decision and put it with those below the 50th percentile. Typically this is something I would ask for clarification on, but for this project I made the executive decision.
 
 6) Write a custom view to aggregate the categories [provide view SQL AND the results of this view]
     - category: The category column
     - total_places: The number of places in that category
     - total_chairs: The total chairs in that category
+
+    #### Jake's work
+    - View path: `'/categories'`
+    This data was verified via tests in both filepaths: `'street_cafes/spec/features/categories/index_spec'` (integration level) & `'street_cafes/spec/poros/category'` (unit level). PORO `attr_reader` methods are fully tested at both unit and integration levels (using SimpleCov to ensure 100% testing coverage) to verify that data provided is accurate and displayed correctly in the view.
 
 7) Write a script in rails to:
     - For street_cafes categorized as small, write a script that exports their data to a csv and deletes the records
