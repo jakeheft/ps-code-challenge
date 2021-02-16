@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :post_code_data, only: %i[index]
 
   resources :categories, only: %i[index create]
+
+  delete '/street_cafes', to: 'street_cafes#destroy'
 end
