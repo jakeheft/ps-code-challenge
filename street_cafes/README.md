@@ -18,4 +18,4 @@ The following are gems I added in addition to gems created with a new Rails app
 1. Clone this repo/fork
 1. Run `bundle install`
 1. Run `rails db:{create,migrate,seed}`
-1. Run `RAILS_ENV=test rails db:migrate` *If a test database wasn't created automatically, run `RAILS_ENV=test rails db:migrate` prior to this command
+1. If a test database wasn't created automatically, run `RAILS_ENV=test rails db:migrate`
