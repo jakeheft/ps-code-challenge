@@ -54,6 +54,11 @@
     - For street cafes categorized as medium or large, write a script that concatenates the category name to the beginning of the name and writes it back to the name column
 	
     *Please share any tests you wrote for #7*
+    #### Jake's work
+    - The script to reorganize the data can be called in with the Reorganize Cafe Data button in the root view. This will call the StreetCafe destroy action and trigger the exportation of data to a csv file, destroying small category data, then updating medium and large category data while leaving other category data alone.
+    - I tested this in the path: `'street_cafes/spec/features/welcome_spec'`. Each category type is tested to ensure proper functioning, with destroyed records expected to raise exception.
+    - Overall this was a fun a challenging project. The nature of the design made it difficult to follow normal REST conventions, but I tried getting a little creative in that regard.
+    - I am happy to discuss my design decisions with you as well as changes I would make if I had more time--Turing's demanding 80/hrs week made it hard to refactor fully for this challenge.
 
 8) Show your work and check your email for submission instructions.
 
