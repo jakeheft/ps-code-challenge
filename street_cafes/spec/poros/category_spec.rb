@@ -7,10 +7,11 @@ describe Category do
 		cafe1 = create(:street_cafe, post_code: post_code, num_chairs: 5, category: category_data)
 		cafe2 = create(:street_cafe, post_code: post_code, num_chairs: 8, category: category_data)
 
-		category1 = Category.new(category_data)
+		category = Category.new(category_data)
 
-		expect(category1).to be_a(Category)
-		expect(category1.total_places).to eq(2)
-		expect(category1.total_chairs).to eq(13)
+		expect(category).to be_a(Category)
+		expect(category.category).to eq(category_data)
+		expect(category.total_places).to eq(2)
+		expect(category.total_chairs).to eq(13)
 	end
 end
