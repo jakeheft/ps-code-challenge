@@ -13,7 +13,8 @@ describe 'Welcome Page' do
 		cafe6 = create(:street_cafe, post_code: post_code2, num_chairs: 45)
 		cafe7 = create(:street_cafe, post_code: post_code2, num_chairs: 44)
 		cafe8 = create(:street_cafe, post_code: post_code2, num_chairs: 43)
-		cafe9 = create(:street_cafe, post_code: post_code3, num_chairs: 32)
+		cafe9 = create(:street_cafe, post_code: post_code2, num_chairs: 42)
+		cafe10 = create(:street_cafe, post_code: post_code3, num_chairs: 32)
 
 		expect(cafe1.category).to eq(nil)
 		expect(cafe2.category).to eq(nil)
@@ -24,10 +25,22 @@ describe 'Welcome Page' do
 		expect(cafe7.category).to eq(nil)
 		expect(cafe8.category).to eq(nil)
 		expect(cafe9.category).to eq(nil)
+		expect(cafe10.category).to eq(nil)
 
 		visit root_path
 
 		click_button 'Categorize Cafes'
+
+		cafe1.reload
+		cafe2.reload
+		cafe3.reload
+		cafe4.reload
+		cafe5.reload
+		cafe6.reload
+		cafe7.reload
+		cafe8.reload
+		cafe9.reload
+		cafe10.reload
 
 		expect(current_path).to eq('/categories')
 		expect(cafe1.category).to eq('ls1 medium')
@@ -38,6 +51,7 @@ describe 'Welcome Page' do
 		expect(cafe6.category).to eq('ls2 large')
 		expect(cafe7.category).to eq('ls2 small')
 		expect(cafe8.category).to eq('ls2 small')
-		expect(cafe9.category).to eq('other')
+		expect(cafe9.category).to eq('ls2 small')
+		expect(cafe10.category).to eq('other')
 	end
 end
