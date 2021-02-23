@@ -11,6 +11,6 @@ class PostCode
 	end
 
 	def place_with_max_chairs
-		StreetCafe.where(post_code: code).order(num_chairs: :desc).pluck(:name).first
+		StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes WHERE street_cafes.post_code = '#{code}' ORDER BY street_cafes.num_chairs DESC LIMIT 1").first.name
 	end
 end

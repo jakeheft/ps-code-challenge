@@ -2,14 +2,14 @@ require 'csv'
 
 class StreetCafesController < ApplicationController
 	def destroy
-		small_cafes = StreetCafe.where('category iLIKE ?', "%small%")
+		small_cafes = StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes WHERE (category iLIKE '%small%')")
 		export_and_destroy(small_cafes)
 		update
 	end
 
 	def update
-		med_cafes = StreetCafe.where('category iLIKE ?', "%medium%")
-		large_cafes = StreetCafe.where('category iLIKE ?', "%large%")
+		med_cafes = StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes WHERE (category iLIKE '%medium%')")
+		large_cafes = StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes WHERE (category iLIKE '%large%')")
 		med_large_cafes = med_cafes + large_cafes
 		join_category_to_name(med_large_cafes)
 	end

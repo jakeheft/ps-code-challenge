@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
 	def index
-		categories = StreetCafe.distinct.pluck(:category)
+		categories = StreetCafe.find_by_sql("SELECT DISTINCT street_cafes.category FROM street_cafes")
+		categories = categories.map { |cat| cat.category }
 		@categories = categories.map { |category| Category.new(category) }
 	end
 
 	def create
-		StreetCafe.all.each do |cafe|
+		street_cafes = StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes")
+		street_cafes.each do |cafe|
 			categorize(cafe)
 		end
 		redirect_to categories_path
@@ -35,7 +37,7 @@ class CategoriesController < ApplicationController
 
 	def fiftieth_percentile
 		@fiftieth_percentile ||= begin
-			ordered_cafes = StreetCafe.where('post_code iLIKE ?', "%LS2 %")
+			ordered_cafes = StreetCafe.find_by_sql("SELECT street_cafes.* FROM street_cafes WHERE (post_code iLIKE '%LS2 %')")
 			ordered_cafes[ordered_cafes.length / 2].num_chairs
 		end
 	end
